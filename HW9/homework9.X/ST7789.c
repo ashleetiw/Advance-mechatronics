@@ -112,9 +112,10 @@ void LCD_clearScreen(unsigned short color) {
 void drawChar(unsigned short x, unsigned short y, unsigned short color, unsigned char letter){
     int i;
     int j;
+    letter = letter-0x20;
     for (i=0; i<5; i++) { // x position
         for (j=0; j<8; j++) { // y position
-            if (ASCII[letter][i] >> j & 0b1 == 0b1){
+            if ((ASCII[letter][i] >> j) &  0b01 == 1){
                 LCD_drawPixel(x + i, y + j, color);
             }   
             else {
@@ -127,9 +128,9 @@ void drawChar(unsigned short x, unsigned short y, unsigned short color, unsigned
 // drawString function
 void drawString(unsigned short x, unsigned short y, unsigned short color, char *m){
     int length = strlen(m);
-    int c;
-    for (c=0; c<length; c++) {
-        drawChar(x + c*6, y, color, m[c] - 0x20);
+    int i;
+    for (i=0; i<length; i++) {
+        drawChar(x + i*6, y, color, m[i] - 0x20);
     }
 }
 

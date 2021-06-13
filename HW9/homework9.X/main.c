@@ -37,7 +37,7 @@
 #pragma config IOL1WAY = OFF // allow multiple reconfigurations
 
 void initSPI();
-void writeUART1(const char * string);
+
 
 char m[100];
 
@@ -107,13 +107,3 @@ int main() {
     }
 }
 
-// Write a character array using UART3
-void writeUART1(const char * string) {
-  while (*string != '\0') {
-    while (U1STAbits.UTXBF) {
-      ; // wait until tx buffer isn't full
-    }
-    U1TXREG = *string;
-    ++string;
-  }
-}

@@ -39,6 +39,15 @@ int main() {
     
     __builtin_disable_interrupts(); // disable interrupts while initializing things
 
+    __builtin_mtc0(_CP0_CONFIG, _CP0_CONFIG_SELECT, 0xa4210583);
+    
+    BMXCONbits.BMXWSDRM = 0x0;
+
+    // enable multi vector interrupts
+    INTCONbits.MVEC = 0x1;
+
+    // disable JTAG to get pins back
+    DDPCONbits.JTAGEN = 0;
     
     // do your TRIS and LAT commands here
     TRISBbits.TRISB4 = 1; //B4 is input
@@ -56,13 +65,14 @@ int main() {
     float hue4 = 300;
 
     //reset the lights before use
-    LATBbits.LATB6 = 0; 
+    LATBbits.LATB2 = 0; 
     
     // set timer initial to 0
     TMR2 = 0;
     
-    int LED_num = 4; // total number of LEDs
-    float increment = 1;
+    while (TMR2 < 2400) {;} 
+    
+    int num = 4; // total number of LEDs
     int counter = 2;
     
     while (1) {
@@ -71,20 +81,13 @@ int main() {
         wsColor c3 = HSBtoRGB(hue3,1,0.1);
         wsColor c4 = HSBtoRGB(hue4,1,0.1);
         
-//       if (counter%2 == 0){ // mix up the order every other time to make it look pretty 
-//           c1 = c4;
-//           c2 = c3;
-//           c3 = c2;
-//           c4 = c1;
-//       } 
-
         
         wsColor color[4] = {c1, c2, c3, c4}; 
         
-        hue1 = hue1 + increment;
-        hue2 = hue2 + increment;
-        hue3 = hue3 + increment;
-        hue4 = hue4 + increment;
+        hue1 = hue1 ++;
+        hue2 = hue2 ++;
+        hue3 = hue3 ++;
+        hue4 = hue4 ++;
       
  
         if (hue1 > 360){
@@ -103,7 +106,7 @@ int main() {
             hue4 = 0;
         }
         
-        ws2812b_setColor(color, LED_num);
+        ws2812b_setColor(color, num);
         
         TMR2 = 0;
         counter = counter + 1;

@@ -7,7 +7,7 @@
 #include "font.h"
 #include "ST7789.h"
 #include "imu.h"
-//#include "ws2812b.h"
+#include "ws2812b.h"
 
 // DEVCFG0
 #pragma config DEBUG = OFF      // disable debugging
@@ -60,32 +60,38 @@ int main() {
     TRISAbits.TRISA4 = 0;   //A4 is output
     LATAbits.LATA4 = 0;     //A4 is low
     
-    initUART1();            // init UART1
-    initSPI();              // init SPI
-    LCD_init();             // init LCD
-    LCD_clearScreen(BLACK); //clear screen
+    initUART1();           
+    initSPI();             
+    LCD_init();             
     
-    i2c_master_setup();     // init i2c
-    imu_setup();            // setup IMU
+    
+    i2c_master_setup();     
+    imu_setup();            
         
     __builtin_enable_interrupts();
     
+    
     signed short data_arr[7];
     int delay;
+    
+    LCD_clearScreen(BLACK); //clear screen
+    
+  
     while(1) {
         _CP0_SET_COUNT(0);
         LATAbits.LATA4 = !LATAbits.LATA4; //heartbeat
         
         i2c_read_multiple(IMU_ADDR, IMU_OUT_TEMP_L, data_arr, 14);
         
+        
         sprintf(m, "Temperature: %d", data_arr[0]);
-        drawString(10, 10, WHITE, m);
+//        drawString(10, 10, WHITE, m);
         
         sprintf(m, "Angular V: %d %d %d", data_arr[1], data_arr[2], data_arr[3]);
-        drawString(10, 20, WHITE, m);
+//        drawString(10, 20, WHITE, m);
         
         sprintf(m, "Acceleration: %d %d %d", data_arr[4], data_arr[5], data_arr[6]);
-        drawString(10, 30, WHITE, m);
+//        drawString(10, 30, WHITE, m);
         
         bar_x(-data_arr[5]);
         bar_y(data_arr[4]);
@@ -93,6 +99,6 @@ int main() {
         delay = _CP0_GET_COUNT();       //remember time
         float fps = 24000000/delay;     //get fps from delay (48M ticks/1 sec * frame/tick)
         sprintf(m, "FPS = %.2f", fps);
-        drawString(10, 220, WHITE, m);  //write FPS on screen
+//        drawString(10, 220, WHITE, m);  //write FPS on screen
     }
 }

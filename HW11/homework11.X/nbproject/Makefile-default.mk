@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ST7789.c spi.c i2c_master_noint.c UART.c imu.c main.c
+SOURCEFILES_QUOTED_IF_SPACED=ST7789.c spi.c i2c_master_noint.c UART.c imu.c main.c ws2812b.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ST7789.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/imu.o ${OBJECTDIR}/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/ST7789.o.d ${OBJECTDIR}/spi.o.d ${OBJECTDIR}/i2c_master_noint.o.d ${OBJECTDIR}/UART.o.d ${OBJECTDIR}/imu.o.d ${OBJECTDIR}/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ST7789.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/imu.o ${OBJECTDIR}/main.o ${OBJECTDIR}/ws2812b.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/ST7789.o.d ${OBJECTDIR}/spi.o.d ${OBJECTDIR}/i2c_master_noint.o.d ${OBJECTDIR}/UART.o.d ${OBJECTDIR}/imu.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/ws2812b.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ST7789.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/imu.o ${OBJECTDIR}/main.o
+OBJECTFILES=${OBJECTDIR}/ST7789.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/imu.o ${OBJECTDIR}/main.o ${OBJECTDIR}/ws2812b.o
 
 # Source Files
-SOURCEFILES=ST7789.c spi.c i2c_master_noint.c UART.c imu.c main.c
+SOURCEFILES=ST7789.c spi.c i2c_master_noint.c UART.c imu.c main.c ws2812b.c
 
 
 
@@ -107,78 +107,90 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/ST7789.o: ST7789.c  .generated_files/fab2ac60cc67499efb36bf5fd45de16d1e208de6.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/ST7789.o: ST7789.c  .generated_files/437e570193d9c572f4c446b0c2ce105a5df373e5.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ST7789.o.d 
 	@${RM} ${OBJECTDIR}/ST7789.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ST7789.o.d" -o ${OBJECTDIR}/ST7789.o ST7789.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/spi.o: spi.c  .generated_files/a03d307ece642e3a8445589b7e2fd75c95fa827c.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/spi.o: spi.c  .generated_files/333063b0ad5a2a3bf5a6ebb348dce4310b9acd9e.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/spi.o.d 
 	@${RM} ${OBJECTDIR}/spi.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/spi.o.d" -o ${OBJECTDIR}/spi.o spi.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/i2c_master_noint.o: i2c_master_noint.c  .generated_files/1209c05c2d7d8e9d55e68f255f0eb9a8f7faaff0.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/i2c_master_noint.o: i2c_master_noint.c  .generated_files/721cae15a4d11fa749a9a218f95aab9f859d4092.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/i2c_master_noint.o.d 
 	@${RM} ${OBJECTDIR}/i2c_master_noint.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/i2c_master_noint.o.d" -o ${OBJECTDIR}/i2c_master_noint.o i2c_master_noint.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/UART.o: UART.c  .generated_files/8880bb95239aab919a5498a1637db825f4760a9.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/UART.o: UART.c  .generated_files/e4fecf8570b73e09592c0f1d3eeb44ec814de91c.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/UART.o.d 
 	@${RM} ${OBJECTDIR}/UART.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/UART.o.d" -o ${OBJECTDIR}/UART.o UART.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/imu.o: imu.c  .generated_files/1e909cec2b056c4169c4932135037bfb503cd0c.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/imu.o: imu.c  .generated_files/9618ea55a903ca3fdee526034486eabecaa9cfad.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/imu.o.d 
 	@${RM} ${OBJECTDIR}/imu.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/imu.o.d" -o ${OBJECTDIR}/imu.o imu.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/main.o: main.c  .generated_files/cade22bd0fce9bd73999a7f90107b692245cfbee.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/main.o: main.c  .generated_files/8b563e0465905b31eb17274f3b3a1f842015985c.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
+${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/b14da3b5ad9988d30872389d9ce5e3c23ed7a791.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ws2812b.o.d 
+	@${RM} ${OBJECTDIR}/ws2812b.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ws2812b.o.d" -o ${OBJECTDIR}/ws2812b.o ws2812b.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
 else
-${OBJECTDIR}/ST7789.o: ST7789.c  .generated_files/6f40c33375f92f82159bc36bb618e84246a9ffdf.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/ST7789.o: ST7789.c  .generated_files/21c20b859f86c8726b012b42d4409837be664be0.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ST7789.o.d 
 	@${RM} ${OBJECTDIR}/ST7789.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ST7789.o.d" -o ${OBJECTDIR}/ST7789.o ST7789.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/spi.o: spi.c  .generated_files/1670def9621888b278a4c32da7613c03c695398b.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/spi.o: spi.c  .generated_files/f5be5224e027d004edca3a270bae7c7027e2c2ff.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/spi.o.d 
 	@${RM} ${OBJECTDIR}/spi.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/spi.o.d" -o ${OBJECTDIR}/spi.o spi.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/i2c_master_noint.o: i2c_master_noint.c  .generated_files/8ba32730e76b79b59ea5de279479179637a5ede2.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/i2c_master_noint.o: i2c_master_noint.c  .generated_files/69fad08c20c881d064b58857c806265e92c3ec43.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/i2c_master_noint.o.d 
 	@${RM} ${OBJECTDIR}/i2c_master_noint.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/i2c_master_noint.o.d" -o ${OBJECTDIR}/i2c_master_noint.o i2c_master_noint.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/UART.o: UART.c  .generated_files/dacb5796d1ad142a192437fd4fdcd5f91a7a7ddc.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/UART.o: UART.c  .generated_files/d63eb348990ad7a9d2d91e3dcf630d6d3f1f3e6c.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/UART.o.d 
 	@${RM} ${OBJECTDIR}/UART.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/UART.o.d" -o ${OBJECTDIR}/UART.o UART.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/imu.o: imu.c  .generated_files/2f4704c97a2647eb6d86e38ba11d78d6efa50141.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/imu.o: imu.c  .generated_files/30f7821a008ef5653e35d3a53d5ef380f002de3f.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/imu.o.d 
 	@${RM} ${OBJECTDIR}/imu.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/imu.o.d" -o ${OBJECTDIR}/imu.o imu.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/main.o: main.c  .generated_files/95651a5e7408eb6db2385b8383a20b5e7661124e.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/main.o: main.c  .generated_files/4cc6266ecaec99978d89a78ac15ead14a46b4f60.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/dbdace4000754dedd05f451f9429a68d4a4cc865.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ws2812b.o.d 
+	@${RM} ${OBJECTDIR}/ws2812b.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ws2812b.o.d" -o ${OBJECTDIR}/ws2812b.o ws2812b.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 

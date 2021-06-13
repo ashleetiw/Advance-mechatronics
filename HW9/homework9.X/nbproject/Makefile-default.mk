@@ -107,38 +107,38 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/spi.o: spi.c  .generated_files/b0477e4b114dbbc906e390dcacb0d427524aa573.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/spi.o: spi.c  .generated_files/23bf1749bb15f8bfe4ef676d921f2a94a78920b4.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/spi.o.d 
 	@${RM} ${OBJECTDIR}/spi.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/spi.o.d" -o ${OBJECTDIR}/spi.o spi.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/ST7789.o: ST7789.c  .generated_files/8c3cf71f48cb4a874f1b235a98bd9032ee90da00.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/ST7789.o: ST7789.c  .generated_files/2d58e3617b1c9e4c094e3c0bf3a47349e6fa22b0.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ST7789.o.d 
 	@${RM} ${OBJECTDIR}/ST7789.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ST7789.o.d" -o ${OBJECTDIR}/ST7789.o ST7789.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/main.o: main.c  .generated_files/bd3f12b6f8202f75f76a1f4a2812e02ec8d884d8.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/main.o: main.c  .generated_files/1a99d9720fc237d8e2eb7a88e3c5a29a92e0d1d3.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 else
-${OBJECTDIR}/spi.o: spi.c  .generated_files/764dd44267d3f5e20f780c13c965eb477b4f36bd.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/spi.o: spi.c  .generated_files/6661e5e175c4cfe46bea814f389f8b9cd7588c7f.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/spi.o.d 
 	@${RM} ${OBJECTDIR}/spi.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/spi.o.d" -o ${OBJECTDIR}/spi.o spi.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/ST7789.o: ST7789.c  .generated_files/48f5fbb11f5873ca8cdf0758b75cb863789a7fb0.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/ST7789.o: ST7789.c  .generated_files/ff594fbbddcbd0e29c68be76c6ffd174d051f31d.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ST7789.o.d 
 	@${RM} ${OBJECTDIR}/ST7789.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ST7789.o.d" -o ${OBJECTDIR}/ST7789.o ST7789.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/main.o: main.c  .generated_files/86de7d974d8cdf332801c28ef0dccd8d5500ac6a.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/main.o: main.c  .generated_files/d5d2a82ea6c84723f8d39f3523e99989425f5fd3.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 

@@ -107,26 +107,26 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/main.o: main.c  .generated_files/3b7a8dd0c9665f24c349b177d3dd2060d5b297bf.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/main.o: main.c  .generated_files/cb52866e872332e20cbeed4112b2d3d6701e2cf8.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/56915cb06404affeac37d367125fb6444f825194.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/8c4dfca097a53d56b152694e411613f957f7bb8f.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ws2812b.o.d 
 	@${RM} ${OBJECTDIR}/ws2812b.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ws2812b.o.d" -o ${OBJECTDIR}/ws2812b.o ws2812b.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 else
-${OBJECTDIR}/main.o: main.c  .generated_files/971eec3bd27607c8f37a2b009c1b9d7de7638781.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/main.o: main.c  .generated_files/1368eafba4789ea9a3a804c188a023652bbfcc99.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/46c7314fb73061a0ef9ba2b76ca629d561598384.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
+${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/aebf5ba056633343de65f393c4e10a44addd983b.flag .generated_files/4030e4a7ca3237505371c7df91115cacc8c9f2d1.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ws2812b.o.d 
 	@${RM} ${OBJECTDIR}/ws2812b.o 
